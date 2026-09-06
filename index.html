@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="wizard.css" />
   <link rel="stylesheet" href="features.css" />
+  <link rel="stylesheet" href="support.css" />
 </head>
 <body>
   <div class="car-intro" id="carIntro" aria-hidden="true">
@@ -53,12 +54,12 @@
         </div>
         <div class="valuation-chat" id="valuationChat">
           <div class="valuation-messages" id="valuationMessages">
-            <div class="v-message bot"><span class="mini-ai">AI</span><p>سلام! می‌خوای قیمت چه ماشینی رو بدونی؟<small>مثلاً: پژو ۲۰۷ اتومات یا تویوتا کرولا</small></p></div>
+            <div class="v-message bot"><span class="mini-ai">AI</span><p>سلام! مشخصات ماشین را مثل حرف‌زدن معمولی بنویس؛ من اطلاعاتش را جدا می‌کنم.<small>مثلاً: بنز E250، یک تکه رنگ، مشکی، ۱۰۰ هزار کارکرد؛ چنده؟</small></p></div>
           </div>
           <div class="quick-options" id="quickOptions">
-            <button type="button">پژو ۲۰۷ اتومات</button><button type="button">دنا پلاس توربو</button><button type="button">تویوتا کرولا ۲۰۲۴</button>
+            <button type="button">بنز E250 یک تکه رنگ ۱۰۰ هزار کار</button><button type="button">پژو ۲۰۷ اتومات مدل ۱۴۰۲</button><button type="button">تویوتا کرولا ۲۰۲۴ بدون رنگ</button>
           </div>
-          <div class="valuation-input"><input id="valuationAnswer" type="text" placeholder="اسم ماشین را بنویس..." autocomplete="off" /><button type="button" id="valuationSend" aria-label="ارسال پاسخ">↑</button></div>
+          <div class="valuation-input"><input id="valuationAnswer" type="text" placeholder="مثلاً: بنز E250 مشکی، ۱۰۰ هزار کار..." autocomplete="off" /><button type="button" id="valuationSend" aria-label="ارسال پاسخ">↑</button></div>
           <button type="button" class="restart-chat hidden" id="restartValuation">شروع محاسبه جدید</button>
         </div>
         <div class="type-toggle" role="group" aria-label="نوع خودرو">
@@ -139,9 +140,24 @@
       </div>
     </section>
   </main>
-  <footer><span>© ۱۴۰۵ خودرو چند</span><span>تخمین هوشمند، تصمیم آگاهانه</span></footer>
+  <footer class="site-footer">
+    <div class="footer-branding"><span class="helchin-mark">H</span><div><strong>فناوری هلچین</strong><small>طراحی و توسعه سامانه خودرو چنده</small></div></div>
+    <div class="footer-support">
+      <button type="button" id="openSupport"><span>AI</span> پشتیبانی هوشمند</button>
+      <a class="phone-link pending" id="phoneLink" href="#"><span>☎</span><div><small>تماس تلفنی</small><b>شماره تماس در حال ثبت</b></div></a>
+    </div>
+    <div class="footer-meta"><span>© ۱۴۰۵ خودرو چنده</span><span>تخمین هوشمند، تصمیم آگاهانه</span></div>
+  </footer>
+  <button type="button" class="support-fab" id="supportFab" aria-label="بازکردن پشتیبانی هوشمند"><span>AI</span><b>پشتیبانی</b></button>
+  <section class="support-panel" id="supportPanel" aria-label="پشتیبانی هوشمند" aria-hidden="true">
+    <header><div><span class="support-avatar">AI</span><div><strong>پشتیبان خودرو چنده</strong><small><i></i> نسخه آزمایشی</small></div></div><button type="button" id="closeSupport" aria-label="بستن">×</button></header>
+    <div class="support-messages" id="supportMessages"><div class="support-message bot">سلام! برای کار با سایت، محاسبه قیمت، ارسال عکس یا ارتباط با پشتیبانی کمکت می‌کنم. پاسخ‌گویی کامل هوش مصنوعی به‌زودی فعال می‌شود.</div></div>
+    <div class="support-suggestions" id="supportSuggestions"><button>چطور قیمت بگیرم؟</button><button>ارسال عکس چطوریه؟</button><button>تماس با پشتیبانی</button></div>
+    <form class="support-input" id="supportForm"><input id="supportQuestion" placeholder="سؤالت را بنویس..." autocomplete="off"><button aria-label="ارسال">↑</button></form>
+  </section>
   <script src="app.js"></script>
   <script src="wizard.js"></script>
   <script src="features.js"></script>
+  <script src="support.js"></script>
 </body>
 </html>
