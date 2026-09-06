@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="support.css" />
   <link rel="stylesheet" href="account.css" />
   <link rel="stylesheet" href="market-status.css" />
+  <link rel="stylesheet" href="payment-options.css" />
 </head>
 <body>
   <div class="car-intro" id="carIntro" aria-hidden="true">
@@ -34,7 +35,6 @@
       <a href="#guide">راهنمای خرید</a>
     </nav>
     <div class="top-actions">
-      <button class="ghost" id="favoritesBtn">ذخیره‌شده‌ها <span id="favCount">۰</span></button>
       <button class="account-button" id="openAccount">ورود / ثبت‌نام</button>
     </div>
   </header>
@@ -96,8 +96,8 @@
     <section class="subscriptions" id="subscriptions">
       <div class="subscription-heading"><span class="section-no">اشتراک خودرو چنده</span><h2>قیمت دقیق‌تر، قبل از معامله</h2><p>اشتراک برای استعلام هوشمند قیمت، مشاهده سابقه بازار و ذخیره گزارش‌ها لازم است.</p></div>
       <div class="plan-grid">
-        <article class="plan-card"><span>یک‌ماهه</span><strong>۸۰٬۰۰۰ <small>تومان</small></strong><ul><li>استعلام هوشمند قیمت خودرو</li><li>قیمت روز بازار خودروهای ایرانی</li><li>ذخیره گزارش‌های قیمت‌گذاری</li></ul><button type="button" data-plan="monthly">انتخاب بسته یک‌ماهه</button></article>
-        <article class="plan-card featured"><b>به‌صرفه‌تر</b><span>سه‌ماهه</span><strong>۲۰۰٬۰۰۰ <small>تومان</small></strong><ul><li>تمام امکانات بسته یک‌ماهه</li><li>نمودار تغییرات ۳۰ روزه</li><li>اولویت پاسخ‌گویی پشتیبانی</li></ul><button type="button" data-plan="quarterly">انتخاب بسته سه‌ماهه</button></article>
+        <article class="plan-card"><span>یک‌ماهه</span><strong>۸۰٬۰۰۰ <small>تومان</small></strong><ul><li>استعلام هوشمند قیمت خودرو</li><li>قیمت روز بازار خودروهای ایرانی</li><li>ذخیره گزارش‌های قیمت‌گذاری</li></ul><div class="plan-actions"><button type="button" data-plan="monthly" data-payment="cash">پرداخت کن</button><button type="button" class="installment" data-plan="monthly" data-payment="snapp">پرداخت قسطی با اسنپ‌پی</button></div></article>
+        <article class="plan-card featured"><b>به‌صرفه‌تر</b><span>سه‌ماهه</span><strong>۲۰۰٬۰۰۰ <small>تومان</small></strong><ul><li>تمام امکانات بسته یک‌ماهه</li><li>نمودار تغییرات ۳۰ روزه</li><li>اولویت پاسخ‌گویی پشتیبانی</li></ul><div class="plan-actions"><button type="button" data-plan="quarterly" data-payment="cash">پرداخت کن</button><button type="button" class="installment" data-plan="quarterly" data-payment="snapp">پرداخت قسطی با اسنپ‌پی</button></div></article>
       </div>
       <p class="payment-note">پرداخت آنلاین پس از اتصال درگاه بانکی فعال می‌شود. پرداخت اقساطی اسنپ‌پی نیازمند تأیید پذیرندگی است.</p>
     </section>
