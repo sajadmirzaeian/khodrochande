@@ -1,0 +1,15 @@
+const accountModal=document.getElementById('accountModal');
+const openAccount=document.getElementById('openAccount');
+const closeAccount=document.getElementById('closeAccount');
+const phoneForm=document.getElementById('phoneForm');
+const otpForm=document.getElementById('otpForm');
+const accountStatus=document.getElementById('accountStatus');
+const openAccountModal=()=>{accountModal.classList.add('open');accountModal.setAttribute('aria-hidden','false');setTimeout(()=>document.getElementById('accountPhone').focus(),50)};
+const closeAccountModal=()=>{accountModal.classList.remove('open');accountModal.setAttribute('aria-hidden','true')};
+openAccount.onclick=openAccountModal;closeAccount.onclick=closeAccountModal;
+accountModal.addEventListener('click',e=>{if(e.target===accountModal)closeAccountModal()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAccountModal()});
+document.querySelectorAll('[data-plan]').forEach(button=>button.onclick=()=>{openAccountModal();accountStatus.classList.remove('hidden');accountStatus.textContent=`بسته ${button.dataset.plan==='monthly'?'یک‌ماهه ۸۰٬۰۰۰ تومانی':'سه‌ماهه ۲۰۰٬۰۰۰ تومانی'} انتخاب شد. ابتدا وارد حساب شوید.`});
+phoneForm.onsubmit=e=>{e.preventDefault();const phone=document.getElementById('accountPhone').value.replace(/\D/g,'');const name=document.getElementById('accountName').value.trim();if(!/^09\d{9}$/.test(phone)){accountStatus.classList.remove('hidden');accountStatus.textContent='شماره موبایل را به‌صورت ۱۱ رقمی و با ۰۹ وارد کنید.';return}if(name.length<2){accountStatus.classList.remove('hidden');accountStatus.textContent='نام کاربری باید حداقل دو حرف داشته باشد.';return}accountStatus.classList.remove('hidden');accountStatus.textContent='ظاهر ثبت‌نام آماده است؛ برای ارسال کد واقعی باید پنل پیامک به سرور سایت متصل شود.'};
+otpForm.onsubmit=e=>e.preventDefault();
+document.getElementById('backPhone').onclick=()=>{otpForm.classList.add('hidden');phoneForm.classList.remove('hidden')};

@@ -1,0 +1,11 @@
+.price-item footer {
+  height: auto;
+  padding: 13px 0 0;
+  margin-top: 14px;
+  border-top: 1px solid #e6ebee;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 10px;
+}
+.price-item footer b { color: #9a6b1f; }

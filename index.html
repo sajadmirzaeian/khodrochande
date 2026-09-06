@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="wizard.css" />
   <link rel="stylesheet" href="features.css" />
   <link rel="stylesheet" href="support.css" />
+  <link rel="stylesheet" href="account.css" />
+  <link rel="stylesheet" href="market-status.css" />
 </head>
 <body>
   <div class="car-intro" id="carIntro" aria-hidden="true">
@@ -31,7 +33,10 @@
       <a href="#advisor">مشاور هوشمند</a>
       <a href="#guide">راهنمای خرید</a>
     </nav>
-    <button class="ghost" id="favoritesBtn">ذخیره‌شده‌ها <span id="favCount">۰</span></button>
+    <div class="top-actions">
+      <button class="ghost" id="favoritesBtn">ذخیره‌شده‌ها <span id="favCount">۰</span></button>
+      <button class="account-button" id="openAccount">ورود / ثبت‌نام</button>
+    </div>
   </header>
 
   <main>
@@ -86,7 +91,15 @@
       </div>
       <div class="price-search"><input id="priceSearch" placeholder="نام خودرو را بنویس؛ مثلاً ۲۰۷ یا کرولا" /><button id="priceSearchBtn">جست‌وجو</button></div>
       <div class="price-board" id="priceBoard"></div>
-      <p class="data-note">نسخه آزمایشی: قیمت‌ها فعلاً از فهرست پایه سایت نمایش داده می‌شوند. برای قیمت واقعی لحظه‌ای باید منبع معتبر بازار متصل شود.</p>
+      <div class="market-legend"><span><i class="market-dot pending"></i> اتصال منبع رسمی قیمت در حال آماده‌سازی</span><span>نمایش قیمت بازار، کارخانه و تغییر روزانه</span></div>
+    </section>
+    <section class="subscriptions" id="subscriptions">
+      <div class="subscription-heading"><span class="section-no">اشتراک خودرو چنده</span><h2>قیمت دقیق‌تر، قبل از معامله</h2><p>اشتراک برای استعلام هوشمند قیمت، مشاهده سابقه بازار و ذخیره گزارش‌ها لازم است.</p></div>
+      <div class="plan-grid">
+        <article class="plan-card"><span>یک‌ماهه</span><strong>۸۰٬۰۰۰ <small>تومان</small></strong><ul><li>استعلام هوشمند قیمت خودرو</li><li>قیمت روز بازار خودروهای ایرانی</li><li>ذخیره گزارش‌های قیمت‌گذاری</li></ul><button type="button" data-plan="monthly">انتخاب بسته یک‌ماهه</button></article>
+        <article class="plan-card featured"><b>به‌صرفه‌تر</b><span>سه‌ماهه</span><strong>۲۰۰٬۰۰۰ <small>تومان</small></strong><ul><li>تمام امکانات بسته یک‌ماهه</li><li>نمودار تغییرات ۳۰ روزه</li><li>اولویت پاسخ‌گویی پشتیبانی</li></ul><button type="button" data-plan="quarterly">انتخاب بسته سه‌ماهه</button></article>
+      </div>
+      <p class="payment-note">پرداخت آنلاین پس از اتصال درگاه بانکی فعال می‌شود. پرداخت اقساطی اسنپ‌پی نیازمند تأیید پذیرندگی است.</p>
     </section>
     <section class="photo-check" id="photo-check">
       <div class="photo-copy"><span class="section-no">۰۳ / کارشناسی تصویری</span><h2>عکس بفرست، قیمت تقریبی بگیر</h2><p>عکس خودرو یا تصویر برگه کارشناسی را بارگذاری کن. بعد نام خودرو را انتخاب کن تا تخمین اولیه قیمت آماده شود.</p><ul><li>پیش‌نمایش عکس قبل از ارسال</li><li>پشتیبانی از عکس خودرو و برگه کارشناسی</li><li>تخمین قیمت با توجه به مدل و وضعیت ظاهری</li></ul></div>
@@ -155,9 +168,24 @@
     <div class="support-suggestions" id="supportSuggestions"><button>چطور قیمت بگیرم؟</button><button>ارسال عکس چطوریه؟</button><button>تماس با پشتیبانی</button></div>
     <form class="support-input" id="supportForm"><input id="supportQuestion" placeholder="سؤالت را بنویس..." autocomplete="off"><button aria-label="ارسال">↑</button></form>
   </section>
+  <section class="account-modal" id="accountModal" aria-hidden="true">
+    <div class="account-dialog" role="dialog" aria-modal="true" aria-labelledby="accountTitle">
+      <button type="button" class="account-close" id="closeAccount" aria-label="بستن">×</button>
+      <div class="account-brand"><span>خ</span><div><strong id="accountTitle">ورود به خودرو چنده</strong><small>با شماره موبایل و کد تأیید</small></div></div>
+      <form id="phoneForm" class="account-form">
+        <label>شماره موبایل<input id="accountPhone" type="tel" inputmode="numeric" maxlength="11" placeholder="۰۹۱۲۱۲۳۴۵۶۷" required></label>
+        <label>نام کاربری<input id="accountName" type="text" maxlength="40" placeholder="نامی که در حساب نمایش داده شود" required></label>
+        <button type="submit">دریافت کد تأیید</button>
+      </form>
+      <form id="otpForm" class="account-form hidden"><p id="otpMessage"></p><label>کد تأیید<input id="accountOtp" type="text" inputmode="numeric" maxlength="6" placeholder="کد ۶ رقمی" required></label><button type="submit">تأیید و ورود</button><button type="button" class="back-phone" id="backPhone">اصلاح شماره</button></form>
+      <div class="account-status hidden" id="accountStatus"></div>
+      <small class="account-legal">با ورود، قوانین استفاده و حریم خصوصی را می‌پذیرید.</small>
+    </div>
+  </section>
   <script src="app.js"></script>
   <script src="wizard.js"></script>
   <script src="features.js"></script>
   <script src="support.js"></script>
+  <script src="account.js"></script>
 </body>
 </html>
