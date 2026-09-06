@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#07111f" />
+  <meta name="description" content="خودرو چند؛ تخمین هوشمند قیمت خودروهای ایرانی و خارجی، بررسی مزایا و معایب و مشاوره خرید خودرو" />
+  <title>خودرو چند | قیمت‌گذاری هوشمند خودرو</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="wizard.css" />
+  <link rel="stylesheet" href="features.css" />
+</head>
+<body>
+  <div class="car-intro" id="carIntro" aria-hidden="true">
+    <div class="intro-brand">خودرو <em>چند؟</em></div>
+    <div class="speed-line line-one"></div>
+    <div class="speed-line line-two"></div>
+    <img src="luxury-car.png" alt="" class="intro-car" />
+    <div class="road-glow"></div>
+  </div>
+  <header class="topbar">
+    <a class="brand" href="#calculator" aria-label="خودرو چند">
+      <span class="brand-mark">خ</span>
+      <span>خودرو چند؟</span>
+    </a>
+    <nav aria-label="منوی اصلی">
+      <a href="#calculator">قیمت خودرو</a>
+      <a href="#live-prices">قیمت لحظه‌ای</a>
+      <a href="#photo-check">کارشناسی با عکس</a>
+      <a href="#advisor">مشاور هوشمند</a>
+      <a href="#guide">راهنمای خرید</a>
+    </nav>
+    <button class="ghost" id="favoritesBtn">ذخیره‌شده‌ها <span id="favCount">۰</span></button>
+  </header>
+
+  <main>
+    <section class="hero" id="calculator">
+      <div class="hero-copy">
+        <div class="eyebrow"><span></span> قیمت‌گذاری هوشمند بازار خودرو</div>
+        <h1>ماشینت واقعاً<br><em>چقدر می‌ارزه؟</em></h1>
+        <p>مشخصات خودرو را وارد کن؛ ارزش تقریبی بازار، بازه منصفانه معامله و اثر کارکرد، رنگ و وضعیت بدنه را فوری ببین.</p>
+        <div class="trust-row">
+          <div><strong>ایرانی + خارجی</strong><small>پوشش انواع خودرو</small></div>
+          <div><strong>تحلیل چندعاملی</strong><small>کارکرد، بدنه و شهر</small></div>
+          <div><strong>مشاوره هوشمند</strong><small>مزایا، معایب و پرسش‌ها</small></div>
+        </div>
+      </div>
+
+      <form class="calculator-card conversation-mode" id="priceForm">
+        <div class="card-head">
+          <div><span class="step">۰۱</span><h2>مشخصات خودرو</h2></div>
+          <span class="live"><i></i> بروزرسانی امروز</span>
+        </div>
+        <div class="valuation-chat" id="valuationChat">
+          <div class="valuation-messages" id="valuationMessages">
+            <div class="v-message bot"><span class="mini-ai">AI</span><p>سلام! می‌خوای قیمت چه ماشینی رو بدونی؟<small>مثلاً: پژو ۲۰۷ اتومات یا تویوتا کرولا</small></p></div>
+          </div>
+          <div class="quick-options" id="quickOptions">
+            <button type="button">پژو ۲۰۷ اتومات</button><button type="button">دنا پلاس توربو</button><button type="button">تویوتا کرولا ۲۰۲۴</button>
+          </div>
+          <div class="valuation-input"><input id="valuationAnswer" type="text" placeholder="اسم ماشین را بنویس..." autocomplete="off" /><button type="button" id="valuationSend" aria-label="ارسال پاسخ">↑</button></div>
+          <button type="button" class="restart-chat hidden" id="restartValuation">شروع محاسبه جدید</button>
+        </div>
+        <div class="type-toggle" role="group" aria-label="نوع خودرو">
+          <button type="button" class="active" data-type="iranian">خودروی ایرانی</button>
+          <button type="button" data-type="foreign">خودروی خارجی</button>
+        </div>
+        <div class="grid-fields">
+          <label>برند<select id="brand" required></select></label>
+          <label>مدل<select id="model" required></select></label>
+          <label>سال ساخت<select id="year" required></select></label>
+          <label>کارکرد (کیلومتر)<input id="mileage" type="number" min="0" max="900000" value="45000" inputmode="numeric" /></label>
+          <label>وضعیت بدنه<select id="body"><option value="clean">بدون رنگ</option><option value="one">یک لکه رنگ</option><option value="multi">چند لکه رنگ</option><option value="full">تمام‌رنگ</option><option value="accident">تصادف سنگین</option></select></label>
+          <label>شهر<select id="city"><option>تهران</option><option>یزد</option><option>تبریز</option><option>اصفهان</option><option>شیراز</option><option>مشهد</option><option>رشت</option><option>سایر شهرها</option></select></label>
+        </div>
+        <button class="primary" type="submit"><span>محاسبه قیمت خودرو</span><b>←</b></button>
+        <p class="form-note">قیمت نهایی پس از کارشناسی حضوری بدنه و فنی مشخص می‌شود.</p>
+      </form>
+    </section>
+
+    <section class="live-prices" id="live-prices">
+      <div class="feature-title">
+        <div><span class="section-no">۰۲ / بازار خودرو</span><h2>قیمت لحظه‌ای خودرو</h2><p>قیمت پایه مدل‌های پرطرفدار را سریع جست‌وجو و مقایسه کن.</p></div>
+        <div class="market-status"><i></i><span>آخرین بروزرسانی</span><b id="lastUpdate">امروز</b></div>
+      </div>
+      <div class="price-search"><input id="priceSearch" placeholder="نام خودرو را بنویس؛ مثلاً ۲۰۷ یا کرولا" /><button id="priceSearchBtn">جست‌وجو</button></div>
+      <div class="price-board" id="priceBoard"></div>
+      <p class="data-note">نسخه آزمایشی: قیمت‌ها فعلاً از فهرست پایه سایت نمایش داده می‌شوند. برای قیمت واقعی لحظه‌ای باید منبع معتبر بازار متصل شود.</p>
+    </section>
+    <section class="photo-check" id="photo-check">
+      <div class="photo-copy"><span class="section-no">۰۳ / کارشناسی تصویری</span><h2>عکس بفرست، قیمت تقریبی بگیر</h2><p>عکس خودرو یا تصویر برگه کارشناسی را بارگذاری کن. بعد نام خودرو را انتخاب کن تا تخمین اولیه قیمت آماده شود.</p><ul><li>پیش‌نمایش عکس قبل از ارسال</li><li>پشتیبانی از عکس خودرو و برگه کارشناسی</li><li>تخمین قیمت با توجه به مدل و وضعیت ظاهری</li></ul></div>
+      <div class="upload-card">
+        <label class="drop-zone" id="dropZone"><input type="file" id="carPhoto" accept="image/*,.pdf" /><span class="upload-icon">＋</span><strong>عکس خودرو یا کارشناسی را انتخاب کن</strong><small>JPG، PNG یا PDF</small><img id="photoPreview" alt="پیش‌نمایش تصویر بارگذاری‌شده" /></label>
+        <div class="upload-fields"><select id="photoCar"><option value="">نام خودرو را انتخاب کن</option></select><select id="photoCondition"><option value="clean">بدون رنگ</option><option value="one">یک لکه رنگ</option><option value="multi">چند لکه رنگ</option><option value="full">تمام‌رنگ</option><option value="accident">تصادف سنگین</option></select></div>
+        <button type="button" class="analyze-photo" id="analyzePhoto">بررسی عکس و تخمین قیمت <b>←</b></button><div class="photo-result hidden" id="photoResult"></div>
+      </div>
+    </section>
+    <section class="result-section hidden" id="result" aria-live="polite">
+      <div class="result-main">
+        <span class="result-label">قیمت پیشنهادی هوش مصنوعی</span>
+        <h2 id="resultCar">—</h2>
+        <div class="big-price"><strong id="resultPrice">—</strong><span>تومان</span></div>
+        <div class="range"><span>بازه منصفانه معامله</span><b id="resultRange">—</b></div>
+        <div class="confidence"><span>اطمینان تخمین</span><div><i></i></div><b>۸۶٪</b></div>
+      </div>
+      <div class="result-details">
+        <div class="detail-head"><h3>چرا این قیمت؟</h3><button id="saveBtn">♡ ذخیره</button></div>
+        <div class="factors" id="factors"></div>
+        <p class="disclaimer">این عدد تخمینی است و بر پایه اطلاعات واردشده محاسبه شده؛ قیمت لحظه‌ای واقعی به آگهی‌های معتبر و کارشناسی فنی نیاز دارد.</p>
+      </div>
+    </section>
+
+    <section class="advisor" id="advisor">
+      <div class="advisor-info">
+        <span class="section-no">۰۴ / مشاور هوشمند</span>
+        <h2>هر سؤال خودرویی داری، بپرس</h2>
+        <p>از مقایسه دو ماشین و هزینه نگهداری تا ایرادهای رایج، ارزش خرید و انتخاب مناسب برای خانواده.</p>
+        <div class="suggestions">
+          <button>تارا بهتره یا شاهین؟</button>
+          <button>معایب دنا پلاس چیه؟</button>
+          <button>ماشین کم‌خرج تا ۱ میلیارد؟</button>
+        </div>
+      </div>
+      <div class="chat-card">
+        <div class="chat-head"><span class="ai-avatar">AI</span><div><strong>کارشناس خودرو چنده</strong><small><i></i> آماده پاسخ‌گویی</small></div></div>
+        <div class="messages" id="messages">
+          <div class="message bot">سلام! اسم خودرو یا سؤالت رو بنویس. مزایا، معایب و نکات خریدش رو ساده و بی‌طرفانه می‌گم.</div>
+        </div>
+        <form class="chat-input" id="chatForm"><input id="question" placeholder="مثلاً پژو ۲۰۷ اتومات ارزش خرید داره؟" autocomplete="off" /><button aria-label="ارسال">↑</button></form>
+      </div>
+    </section>
+
+    <section class="guide" id="guide">
+      <span class="section-no">۰۵ / قبل از معامله</span><h2>خرید مطمئن، بدون حدس و ضرر</h2>
+      <div class="guide-grid">
+        <article><b>۱</b><h3>قیمت را مقایسه کن</h3><p>بازه واقعی معامله را با چند آگهی مشابه و شرایط دقیق خودرو بسنج.</p></article>
+        <article><b>۲</b><h3>کارشناسی را جدی بگیر</h3><p>بدنه، شاسی، موتور، گیربکس و دیاگ باید پیش از پرداخت بررسی شوند.</p></article>
+        <article><b>۳</b><h3>مدارک را تطبیق بده</h3><p>شماره شاسی، سند، کارت خودرو، خلافی و وضعیت توقیف را کنترل کن.</p></article>
+      </div>
+    </section>
+  </main>
+  <footer><span>© ۱۴۰۵ خودرو چند</span><span>تخمین هوشمند، تصمیم آگاهانه</span></footer>
+  <script src="app.js"></script>
+  <script src="wizard.js"></script>
+  <script src="features.js"></script>
+</body>
+</html>
