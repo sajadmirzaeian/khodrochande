@@ -1,10 +1,13 @@
-name: Test market price connection
+name: Update daily market prices
 
 on:
   workflow_dispatch:
+  schedule:
+    # ساعت ۱۲ ظهر ایران (UTC+3:30)
+    - cron: '30 8 * * *'
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   update-prices:
@@ -20,9 +23,14 @@ jobs:
         env:
           BARAVARD_API_KEY: ${{ secrets.BARAVARD_API_KEY }}
         run: node scripts/update-market-prices.mjs
-      - name: Save test result
-        uses: actions/upload-artifact@v4
-        with:
-          name: market-price-test
-          path: daily-prices.js
-          retention-days: 1
+      - name: Publish changed prices
+        run: |
+          if git diff --quiet -- daily-prices.js; then
+            echo "No price changes"
+            exit 0
+          fi
+          git config user.name "khodrochande-price-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add daily-prices.js
+          git commit -m "Update daily market prices"
+          git push
