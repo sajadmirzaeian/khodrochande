@@ -8,8 +8,12 @@ const response = await fetch(`https://api2.baravard.com/api/car/zerolist?key=${e
 if (!response.ok) throw new Error(`Baravard API returned HTTP ${response.status}`);
 
 const payload = await response.json();
-const cars = Array.isArray(payload?.cars) ? payload.cars : [];
-if (!cars.length) throw new Error('Baravard API returned no cars');
+const cars = [payload?.cars, payload?.Cars, payload?.data, payload?.Data, payload?.result?.cars]
+  .find(Array.isArray) || [];
+if (!cars.length) {
+  const apiMessage = payload?.message || payload?.Message || payload?.error || payload?.Error || 'پاسخ سرویس فاقد فهرست خودرو بود';
+  throw new Error(`Baravard API: ${apiMessage}`);
+}
 
 const normalize = value => String(value || '').replace(/ي/g, 'ی').replace(/ك/g, 'ک').trim();
 const makerOf = car => {
