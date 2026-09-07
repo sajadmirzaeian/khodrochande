@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="account.css" />
   <link rel="stylesheet" href="market-status.css" />
   <link rel="stylesheet" href="payment-options.css" />
+  <link rel="stylesheet" href="daily-table.css" />
 </head>
 <body>
   <div class="car-intro" id="carIntro" aria-hidden="true">
@@ -24,12 +25,12 @@
   </div>
   <header class="topbar">
     <a class="brand" href="#calculator" aria-label="خودرو چند">
-      <span class="brand-mark">خ</span>
+      <span class="brand-mark"><img src="./khodro-chande-logo.png" alt="لوگوی خودرو چنده" /></span>
       <span>خودرو چند؟</span>
     </a>
     <nav aria-label="منوی اصلی">
       <a href="#calculator">قیمت خودرو</a>
-      <a href="#live-prices">قیمت لحظه‌ای</a>
+      <a href="#live-prices">قیمت امروز خودرو داخلی</a>
       <a href="#photo-check">کارشناسی با عکس</a>
       <a href="#advisor">مشاور هوشمند</a>
       <a href="#guide">راهنمای خرید</a>
@@ -86,12 +87,13 @@
 
     <section class="live-prices" id="live-prices">
       <div class="feature-title">
-        <div><span class="section-no">۰۲ / بازار خودرو</span><h2>قیمت لحظه‌ای خودرو</h2><p>قیمت پایه مدل‌های پرطرفدار را سریع جست‌وجو و مقایسه کن.</p></div>
+        <div><span class="section-no">۰۲ / بازار خودرو</span><h2>قیمت امروز خودرو داخلی</h2><p>قیمت امروز مدل‌های داخلی پرطرفدار را سریع جست‌وجو و مقایسه کن.</p></div>
         <div class="market-status"><i></i><span>آخرین بروزرسانی</span><b id="lastUpdate">امروز</b></div>
       </div>
-      <div class="price-search"><input id="priceSearch" placeholder="نام خودرو را بنویس؛ مثلاً ۲۰۷ یا کرولا" /><button id="priceSearchBtn">جست‌وجو</button></div>
+      <div class="price-search"><input id="priceSearch" placeholder="نام خودرو را بنویس؛ مثلاً ۲۰۷، تارا یا شاهین" /><button id="priceSearchBtn">جست‌وجو</button></div>
+      <div class="maker-tabs" id="makerTabs"><button type="button" class="active" data-maker="ایران خودرو">ایران‌خودرو</button><button type="button" data-maker="سایپا">سایپا</button></div>
       <div class="price-board" id="priceBoard"></div>
-      <div class="market-legend"><span><i class="market-dot pending"></i> اتصال منبع رسمی قیمت در حال آماده‌سازی</span><span>نمایش قیمت بازار، کارخانه و تغییر روزانه</span></div>
+      <div class="market-legend"><span><i class="market-dot pending"></i> <b id="marketSource">در حال بررسی منبع بازار…</b></span><span>قیمت‌ها تخمینی‌اند و پیش از معامله باید بررسی شوند.</span></div>
     </section>
     <section class="photo-check" id="photo-check">
       <div class="photo-copy"><span class="section-no">۰۳ / کارشناسی تصویری</span><h2>عکس بفرست، قیمت تقریبی بگیر</h2><p>عکس خودرو یا تصویر برگه کارشناسی را بارگذاری کن. بعد نام خودرو را انتخاب کن تا تخمین اولیه قیمت آماده شود.</p><ul><li>پیش‌نمایش عکس قبل از ارسال</li><li>پشتیبانی از عکس خودرو و برگه کارشناسی</li><li>تخمین قیمت با توجه به مدل و وضعیت ظاهری</li></ul></div>
@@ -184,6 +186,9 @@
   </section>
   <script src="app.js"></script>
   <script src="wizard.js"></script>
+  <script src="daily-prices.js"></script>
+  <script src="market-config.js"></script>
+  <script src="market-data.js"></script>
   <script src="features.js"></script>
   <script src="support.js"></script>
   <script src="account.js"></script>
